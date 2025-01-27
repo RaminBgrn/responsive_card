@@ -8,7 +8,7 @@ class MainPageRoutes {
       GetPage(
         name: RouteName.home,
         page: () => HomeScreen(),
-      )
+      ),
     ];
   }
 }
