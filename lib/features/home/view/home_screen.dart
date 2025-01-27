@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_card/constants/custom_colors.dart';
 import 'package:responsive_card/features/card/model/image_model.dart';
+import 'package:responsive_card/features/card/model/text_model.dart';
 import 'package:responsive_card/features/card/view/card_item.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -31,31 +32,51 @@ class HomeScreen extends StatelessWidget {
               Condition.equals(
                   name: MOBILE,
                   value: CardItem(
-                    model: ImageModel(
+                    textModel: TextModel(
+                        alignment: Alignment.topRight,
+                        borderRadius: BorderRadius.circular(18)),
+                    imageModel: ImageModel(
                         imageSize: 40,
-                        imageWidth: 100,
-                        imageHeight: 100,
-                        imageBorderRadius: 100,
+                        imageWidth: 80,
+                        imageHeight: 80,
+                        imageBorderRadius: BorderRadius.circular(100),
                         platform: MOBILE),
                   )),
               Condition.equals(
                   name: TABLET,
                   value: CardItem(
-                    model: ImageModel(
+                    textModel: TextModel(
+                      alignment: Alignment.topCenter,
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: const Radius.circular(18),
+                        bottomRight: Radius.circular(18),
+                      ),
+                    ),
+                    imageModel: ImageModel(
                         imageSize: 200,
                         imageHeight: 100,
                         imageWidth: MediaQuery.sizeOf(context).width,
-                        imageBorderRadius: 18,
+                        imageBorderRadius: BorderRadius.only(
+                          topLeft: const Radius.circular(18),
+                          topRight: const Radius.circular(18),
+                        ),
                         platform: TABLET),
                   )),
               Condition.largerThan(
                   name: TABLET,
                   value: CardItem(
-                    model: ImageModel(
+                    textModel: TextModel(
+                      alignment: Alignment.topCenter,
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: const Radius.circular(18),
+                        bottomRight: Radius.circular(18),
+                      ),
+                    ),
+                    imageModel: ImageModel(
                       imageSize: 300,
                       imageWidth: 400,
                       imageHeight: 300,
-                      imageBorderRadius: 0,
+                      imageBorderRadius: BorderRadius.circular(0),
                     ),
                   )),
             ]).value,

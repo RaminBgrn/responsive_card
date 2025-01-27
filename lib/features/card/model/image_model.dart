@@ -1,8 +1,10 @@
+import 'package:flutter/material.dart';
+
 class ImageModel {
   final double? imageSize;
   final double? imageWidth;
   final double? imageHeight;
-  final double? imageBorderRadius;
+  final BorderRadius? imageBorderRadius;
   final String? platform;
 
   ImageModel({
